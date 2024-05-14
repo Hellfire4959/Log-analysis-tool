@@ -1,0 +1,24 @@
+# Log Analysis Tool
+
+def parse_log_file(log_file_path):
+    """
+    Parses a log file and extracts relevant information.
+    Modify this function to match your specific log format.
+    """
+    try:
+        with open(log_file_path, "r") as log_file:
+            for line in log_file:
+                # Process each log entry here
+                # Example: Split the line by a delimiter and extract relevant fields
+                # For instance, assuming a CSV-like format:
+                timestamp, user, action = line.strip().split(",")
+                print(f"Timestamp: {timestamp}, User: {user}, Action: {action}")
+    except FileNotFoundError:
+        print(f"Log file '{log_file_path}' not found.")
+
+def main():
+    log_file_path = "sample.log"  # Replace with the actual path to your log file
+    parse_log_file(log_file_path)
+
+if __name__ == "__main__":
+    main()
